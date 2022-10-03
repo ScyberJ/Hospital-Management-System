@@ -1,25 +1,28 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UI {
     final int FULL_WIDTH;
     String currentChoice, previousChoice;
-    static Scanner input = new Scanner(System.in);
+    Scanner stdin = new Scanner(System.in);
 
+    public UI(int width){
+        this.FULL_WIDTH = width;
+    }
 
-   public UI(int width){
-       this.FULL_WIDTH = width;
-   }
+    public UI(){
+        this.FULL_WIDTH = 100;
+    }
+
 
    public void createLandingPage(){
        createBorder("/");
        createHeading("Hospital Management System");
        createHeading("Choose whether to login or register");
-       currentChoice = createOptionList(new String[]{"Login", "Register"});
-       makeChoice(currentChoice);
+       createOptionList(new String[]{"Login", "Register"});
    }
 
    public String[] createLoginPage(){
-       previousChoice = currentChoice;
        createBorder("/");
        createHeading("Hospital Management System");
        createHeading("Please Enter Your Credentials");
@@ -30,7 +33,6 @@ public class UI {
    }
 
     public String[] createRegisterPage(){
-        previousChoice = currentChoice;
         createBorder("/");
         createHeading("Hospital Management System");
         createHeading("Please Enter Your Credentials");
@@ -41,26 +43,31 @@ public class UI {
         return new String[]{username, password, confirmPassword};
     }
 
-   public String createOptionList(String[] options){
-       for (int i = 0; i < options.length; i++){
-           System.out.println(createSpace(33) + "| " + (i+1) + " " + options[i]);
-       }
-       System.out.print("Please choose a option (choose a number): ");
 
-       int choice = input.nextInt();
+   public void createOptionList(String[] options) {
+       Scanner input = new Scanner(System.in);
+       previousChoice = currentChoice;
+       for (int i = 0; i < options.length; i++) {
+           System.out.println(createSpace(33) + "| " + (i + 1) + " " + options[i]);
+       }
+
+       int choice = 0;
+       System.out.print("Please choose a option (choose a number): ");
+        if (input.hasNextInt()) {
+            choice = input.nextInt();
+        }else{
+            createOptionList(options);
+        }
+
        String option;
 
-       if (choice > options.length){
-          option = "Out of Bounds";
-       }else{
+       if (choice > options.length || choice <= 0) {
+           option = "Out of Bounds";
+       } else {
            option = options[choice - 1];
        }
 
-       return option;
-   }
-
-   public String createOption(String option){
-      return option;
+       currentChoice = option;
    }
 
     public  void createHeading(String heading) {
@@ -73,7 +80,7 @@ public class UI {
 
     public String createFormInput(String label, int padding){
         System.out.print(createSpace(padding) + label);
-        return input.next();
+        return stdin.next();
     }
 
     public String createSpace(int numberOfSpaces){
@@ -85,7 +92,7 @@ public class UI {
        if (size > width){
            size = width;
        }
-       int sideWidth = (int) Math.ceil(1.0 * ((width - size) / 2));
+       int sideWidth = (width - size) / 2;
        return createSpace(sideWidth) + text + createSpace(sideWidth);
     }
 
@@ -118,11 +125,7 @@ public class UI {
             case "Register" -> createRegisterPage();
             default -> {
                 System.out.println("Wrong Choice! Please try again");
-                if (previousChoice == null) {
-                    createLandingPage();
-                }
-                currentChoice = previousChoice;
-                makeChoice(currentChoice);
+                createLandingPage();
             }
         }
     }

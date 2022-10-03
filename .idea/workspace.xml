@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f36c10d-6530-4433-8bb0-1c0cbcb3d233" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/files/appointment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/doctors.txt" afterDir="false" />
+    <list default="true" id="7f36c10d-6530-4433-8bb0-1c0cbcb3d233" name="Changes" comment="Made UI class and Added Patient module">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hospital-Management-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hospital-Management-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/Hospital-Management-System.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/Hospital-Management-System.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/src/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/username.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/appointment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/appointment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/doctors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/PatientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/PatientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/UI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PatientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -66,7 +61,7 @@
       <recent name="C:\Users\Aiden\Desktop\coding\Practice\java\Hospital-Management-System" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PatientHandler">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Hospital-Management-System" />
@@ -83,8 +78,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PatientHandler" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.PatientHandler" />
       </list>
     </recent_temporary>
   </component>
@@ -101,8 +96,20 @@
       <workItem from="1664359824143" duration="4270000" />
       <workItem from="1664368921956" duration="2734000" />
       <workItem from="1664433685079" duration="3603000" />
-      <workItem from="1664516501125" duration="2789000" />
+      <workItem from="1664516501125" duration="5924000" />
+      <workItem from="1664541662058" duration="5645000" />
+      <workItem from="1664738237009" duration="2949000" />
+      <workItem from="1664800367516" duration="7961000" />
+      <workItem from="1664824471009" duration="512000" />
     </task>
+    <task id="LOCAL-00001" summary="Made UI class and Added Patient module">
+      <created>1664519825739</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664519825739</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +126,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Made UI class and Added Patient module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made UI class and Added Patient module" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -128,5 +139,8 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Hospital_Management_System$Main.ic" NAME="Main Coverage Results" MODIFIED="1664804298807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
