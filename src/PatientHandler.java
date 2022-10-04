@@ -1,8 +1,6 @@
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner;
 /********************************************************************************************************************
  * Author: MUTONJ ALI BOTA
@@ -140,7 +138,7 @@ public class PatientHandler {
         Scanner reader = new Scanner(appointmentlist);
         String[] copy = getLines(reader);
 
-        int size = getLength(copy);
+        int size = copy.length;
 
         System.out.print("Enter the ID of the appointment you wish to cancel");
         docId = stdin.nextLine();
@@ -194,15 +192,6 @@ public class PatientHandler {
         return join;
     }
 
-     private static int getLength(String[] a){
-        int count = 0;
-        for(String ap:a){
-            if (ap != null){
-                count++;
-            }
-        }
-        return count;
-    }
      private static void findDoc() throws IOException{
         String seperator = "\t" + "\t" + "\t";
         File doctorsFile = new File("./files/doctors.txt");

@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f36c10d-6530-4433-8bb0-1c0cbcb3d233" name="Changes" comment="Made UI class and Added Patient module">
+    <list default="true" id="7f36c10d-6530-4433-8bb0-1c0cbcb3d233" name="Changes" comment="Finish UI for patient module">
+      <change afterPath="$PROJECT_DIR$/src/UserHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/appointment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/appointment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/doctors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/doctors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/PatientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/PatientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Hospital-Management-System/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Hospital-Management-System/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PatientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PatientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -100,7 +96,8 @@
       <workItem from="1664541662058" duration="5645000" />
       <workItem from="1664738237009" duration="2949000" />
       <workItem from="1664800367516" duration="7961000" />
-      <workItem from="1664824471009" duration="512000" />
+      <workItem from="1664824471009" duration="1344000" />
+      <workItem from="1664906715197" duration="1751000" />
     </task>
     <task id="LOCAL-00001" summary="Made UI class and Added Patient module">
       <created>1664519825739</created>
@@ -109,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664519825739</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finish UI for patient module">
+      <created>1664825629256</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664825629256</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Made UI class and Added Patient module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made UI class and Added Patient module" />
+    <MESSAGE value="Finish UI for patient module" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish UI for patient module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
