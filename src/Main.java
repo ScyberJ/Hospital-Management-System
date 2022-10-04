@@ -1,9 +1,9 @@
 import java.io.IOException;
 
 public class Main {
-    private static final UI layout = new UI();
+    static final UI layout = new UI();
 
-    private static final PatientHandler patients = new PatientHandler();
+    static final PatientHandler patients = new PatientHandler();
     public static void main(String[] args) {
         layout.createLandingPage();
         if (layout.currentChoice.equals("Login")){

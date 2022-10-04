@@ -80,7 +80,7 @@ public abstract class UserHandlerImpl implements UserHandler {
     public String joinArray(String[] lines) {
         String join = "";
         for (String s : lines) {
-            join = join.concat(s);
+            join = join.concat(s + "\n");
         }
         return join;
     }
