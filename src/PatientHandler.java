@@ -1,6 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 /********************************************************************************************************************
  * Author: MUTONJ ALI BOTA
@@ -8,19 +6,25 @@ import java.util.Scanner;
  *          it creates appointments, look for a doctor, and
  *          it views and deletes appointments made by patients.
  *******************************************************************************************************************/
-public class PatientHandler {
-     private static final Scanner stdin = new Scanner(System.in);
-     private static final UI layout = new UI();
+public class PatientHandler extends UserHandlerImpl {
+     private  final Scanner stdin = new Scanner(System.in);
+     private  final UI layout = new UI();
 
-    public static void login() throws IOException {
-        String namePass;
+     @Override
+    public void login() {
         File doc = new File("./files/users.txt");
-        Scanner reader = new Scanner(doc);
+        Scanner reader;
+         try {
+             reader = new Scanner(doc);
+         } catch (FileNotFoundException e) {
+             throw new RuntimeException(e);
+         }
+
+        String namePass;
         boolean correct = false;
         String[] users = getLines(reader);
 
         String[] credentials = layout.createLoginPage();
-
         String name = credentials[0];
         String pass = credentials[1];
 
@@ -41,7 +45,7 @@ public class PatientHandler {
                     String option1 = "Make an Appointment";
                     String option2 = "View Appointments";
                     String option3 = "Delete an Appointment";
-                    String option4 = "Find Docter";
+                    String option4 = "Find Doctor";
                     String option5 = "Quit";
                     String[] patientOptions = new String[]{option1, option2, option3, option4, option5};
                     layout.createOptionList(patientOptions);
@@ -71,7 +75,9 @@ public class PatientHandler {
         }
 
     }
-    public static void register() throws IOException {
+
+    @Override
+    public void register() {
         boolean success = false;
         String name = "", pass = "", confirmPass;
         while(!success){
@@ -91,34 +97,46 @@ public class PatientHandler {
 
         String namePass = (name + "\t" + "\t" + "\t" + pass);
 
-        FileWriter writeUsers = new FileWriter("./files/users.txt", true);
-        writeUsers.write(namePass + "\n" );
-        writeUsers.close();
+        try {
+            FileWriter writeUsers = new FileWriter("./files/users.txt", true);
+            writeUsers.write(namePass + "\n" );
+            writeUsers.close();
+        }catch (IOException io){
+            throw new RuntimeException(io);
+        }
 
         layout.createHeading("You are successfully registered " + name);
     }
-    public static void createAppointment() throws IOException{
+    public void createAppointment() {
         String docName,date,appointmentDetails;
-        String seperator = "\t" + "\t" + "\t";
 
         System.out.print("Enter the doctor's name: ");
         docName = "Dr." + stdin.nextLine();
         String docId = String.valueOf((int) Math.floor(Math.random() * 100)) + docName.charAt(docName.length()-1);
         System.out.print("Enter the date separated by a hyphen as (dd-mm-yyyy): ");
         date = stdin.nextLine();
-        appointmentDetails = (docId + seperator + docName + seperator + date);
+        appointmentDetails = (docId + separator + docName + separator + date);
 
-        FileWriter makeAppointment = new FileWriter("./files/appointment.txt", true);
-        makeAppointment.write(appointmentDetails + "\n");
-        makeAppointment.close();
+        FileWriter makeAppointment;
+        try {
+            makeAppointment = new FileWriter("./files/appointment.txt", true);
+            makeAppointment.write(appointmentDetails + "\n");
+            makeAppointment.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         layout.createHeading("Your appointment was made successfully!");
 
     }
-    private static void viewAppointments() throws FileNotFoundException{
-        String seperator = "\t" + "\t" + "\t";
+    private void viewAppointments() {
         File appointmentList = new File("./files/appointment.txt");
-        Scanner reader = new Scanner(appointmentList);
+        Scanner reader;
+        try {
+            reader = new Scanner(appointmentList);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         String[] headers = new String[]{"ID","Doctor", "Date"};
         String[] lines = getLines(reader);
 
@@ -126,77 +144,50 @@ public class PatientHandler {
         String[][] data = new String[lines.length][];
 
         for (int i = 0; i < data.length; i++){
-            String[] line = lines[i].split(seperator);
+            String[] line = lines[i].split(separator);
             data[i] = new String[]{line[0], line[1], line[2]};
         }
 
         layout.createTable(headers, data);
     }
-    private static void deleteAppointment() throws IOException{
-        String docId, appointmentDetails;
-        File appointmentlist = new File("./files/appointment.txt");
-        Scanner reader = new Scanner(appointmentlist);
+    private void deleteAppointment() {
+        String docId;
+        File appointmentList = new File("./files/appointment.txt");
+        Scanner reader;
+        try {
+            reader = new Scanner(appointmentList);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         String[] copy = getLines(reader);
-
-        int size = copy.length;
 
         System.out.print("Enter the ID of the appointment you wish to cancel");
         docId = stdin.nextLine();
 
-        int a = 0;
         String copy2 = joinArray(removeLine(copy, docId));
 
 
-
-        FileWriter writer = new FileWriter("./files/appointment.txt");
-        writer.write(copy2);
-        writer.close();
+        FileWriter writer;
+        try {
+            writer = new FileWriter("./files/appointment.txt");
+            writer.write(copy2);
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         layout.createHeading("Your appointment was cancelled successfully");
 
     }
 
-    private static ArrayList<String> getLinesAsArrayList(Scanner reader){
-        ArrayList<String> lines = new ArrayList<>();
-        while (reader.hasNextLine()){
-            String line = reader.nextLine();
-            lines.add(line);
-        }
-        return lines;
-    }
-
-    private static String[] getLines(Scanner reader){
-        ArrayList<String> lines = getLinesAsArrayList(reader);
-        String[] arr = new String[lines.size()];
-        lines.toArray(arr);
-        return arr;
-    }
-
-    private static String[] removeLine(String[] lines, String line){
-        ArrayList<String> linesList = new ArrayList<>(Arrays.asList(lines));
-        for (int i = 0; i < linesList.size(); i++){
-            if (linesList.get(i).contains(line)){
-                linesList.remove(i);
-                break;
-            }
-        }
-        String[] arr = new String[linesList.size()];
-        linesList.toArray(arr);
-        return arr;
-    }
-
-    private static String joinArray(String[] arr){
-        String join = "";
-        for (String s : arr) {
-            join = join.concat(s);
-        }
-        return join;
-    }
-
-     private static void findDoc() throws IOException{
-        String seperator = "\t" + "\t" + "\t";
+     private void findDoc() {
         File doctorsFile = new File("./files/doctors.txt");
-        Scanner reader = new Scanner(doctorsFile);
-        String doc;
+         Scanner reader;
+         try {
+             reader = new Scanner(doctorsFile);
+         } catch (FileNotFoundException e) {
+             throw new RuntimeException(e);
+         }
+         String doc;
         boolean exists = false;
 
         System.out.print("Enter doctor's name or id to find a doctor: ");
@@ -216,7 +207,7 @@ public class PatientHandler {
 
 
         if (exists){
-            String[] doctorDetails = result.split(seperator);
+            String[] doctorDetails = result.split(separator);
             String name = doctorDetails[1];
             layout.createHeading("We found " + name + "!");
             layout.createTable(new String[]{"ID", "Name"}, new String[][]{doctorDetails});

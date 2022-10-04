@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UI {
@@ -116,17 +115,6 @@ public class UI {
                 System.out.println("|");
             }
 
-        }
-    }
-
-    public void makeChoice(String choice){
-        switch (choice) {
-            case "Login" -> createLoginPage();
-            case "Register" -> createRegisterPage();
-            default -> {
-                System.out.println("Wrong Choice! Please try again");
-                createLandingPage();
-            }
         }
     }
 

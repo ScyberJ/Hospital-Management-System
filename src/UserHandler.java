@@ -2,9 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public interface UserHandler {
-    // General input
-    Scanner stdin = new Scanner(System.in);
-
     // In charge of the UI
     UI layout = new UI();
 
